@@ -1,0 +1,225 @@
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  color: #e5e7eb;
+  background: #0b1220;
+  font-synthesis: none;
+}
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; }
+.dashboard { width: min(1120px, 100%); margin: 0 auto; padding: 28px 20px; }
+.panel { background: #111c2e; border: 1px solid #263449; border-radius: 14px; padding: 18px; margin: 18px 0; }
+.panel h2 { margin: 0 0 14px; font-size: 1.05rem; }
+.table-count { display: flex; align-items: center; justify-content: space-between; }
+.table-count-value { display: flex; align-items: baseline; gap: 10px; }
+.table-count-value strong { color: #fff; font-size: 2rem; line-height: 1; }
+.table-count-value span { color: #94a3b8; }
+.table-count p { margin: 0; color: #cbd5e1; }
+.header, .header-status, .table-grid { display: flex; align-items: center; gap: 12px; }
+.header { justify-content: space-between; }
+.header h1 { margin: 0; font-size: 1.4rem; }
+.status-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; background: #ef4444; }
+.status-dot.online { background: #22c55e; }
+.table-grid { flex-wrap: wrap; }
+.table-card { flex: 1 1 150px; border-radius: 10px; padding: 14px; background: #1e293b; }
+.state { font-weight: 700; }
+.state-RED { color: #f87171; } .state-YELLOW { color: #facc15; } .state-GREEN { color: #4ade80; } .state-BLUE { color: #60a5fa; }
+.floor-map { width: 100%; height: auto; min-height: 220px; background: #172338; border-radius: 8px; }
+.alert { color: #fecaca; background: #7f1d1d; border-radius: 8px; padding: 12px; margin-top: 16px; }
+.muted { color: #94a3b8; }
+pre { overflow: auto; color: #a7f3d0; }
+.explorer-panel { padding: 0; overflow: hidden; }
+.explorer-heading { display: flex; align-items: center; justify-content: space-between; padding: 20px 22px; border-bottom: 1px solid #263449; }
+.explorer-heading h2 { margin: 0; font-size: 1.05rem; }
+.explorer-heading p { margin: 5px 0 0; color: #94a3b8; font-size: .86rem; }
+.explorer-count { color: #94a3b8; font-size: .8rem; }
+.explorer-workspace { display: grid; grid-template-columns: minmax(210px, 270px) minmax(0, 1fr); min-height: 440px; }
+.explorer-sidebar { display: flex; min-width: 0; flex-direction: column; border-right: 1px solid #263449; background: #0e1828; }
+.explorer-tabs { display: flex; gap: 5px; padding: 12px 12px 8px; }
+.explorer-tabs button { flex: 1; padding: 8px 10px; border: 0; border-radius: 7px; color: #94a3b8; background: transparent; cursor: pointer; font: inherit; font-size: .82rem; }
+.explorer-tabs button.active { color: #e2e8f0; background: #1e293b; }
+.explorer-search { display: flex; align-items: center; gap: 8px; margin: 4px 12px 10px; padding: 7px 9px; border: 1px solid #263449; border-radius: 7px; color: #64748b; background: #111c2e; }
+.explorer-search input { width: 100%; min-width: 0; padding: 0; border: 0; outline: 0; color: #e2e8f0; background: transparent; font: inherit; font-size: .8rem; }
+.explorer-search input::placeholder { color: #64748b; }
+.explorer-tree { overflow: auto; padding: 0 8px 14px; }
+.explorer-tree-row { display: flex; width: 100%; align-items: center; gap: 7px; padding: 6px 8px; padding-left: calc(8px + var(--tree-depth) * 15px); border: 0; border-radius: 5px; color: #cbd5e1; background: transparent; text-align: left; cursor: pointer; font: inherit; font-size: .8rem; }
+.explorer-tree-row:hover { background: #172338; }
+.explorer-tree-row.selected { color: #bfdbfe; background: #1e3a5f; }
+.tree-caret { width: 12px; color: #64748b; text-align: center; }
+.tree-icon { width: 14px; color: #93c5fd; text-align: center; }
+.explorer-file .tree-icon { color: #94a3b8; }
+.explorer-preview { display: flex; min-width: 0; flex-direction: column; background: #0b1220; }
+.preview-toolbar { display: flex; min-height: 44px; align-items: center; gap: 9px; padding: 0 16px; border-bottom: 1px solid #263449; color: #cbd5e1; font-size: .8rem; }
+.preview-file-icon { color: #93c5fd; }
+.preview-path { overflow: hidden; flex: 1; text-overflow: ellipsis; white-space: nowrap; }
+.preview-language { color: #64748b; text-transform: uppercase; }
+.preview-content { overflow: auto; flex: 1; max-height: 560px; }
+.explorer-message { margin: 18px; color: #94a3b8; font-size: .86rem; }
+.explorer-error { color: #fca5a5; }
+.code-preview { min-width: max-content; margin: 0; padding: 12px 0; color: #cbd5e1; font: 12.5px/1.75 "Cascadia Code", "SFMono-Regular", Consolas, monospace; tab-size: 2; }
+.code-preview code { display: block; }
+.code-line { display: grid; grid-template-columns: 52px 1fr; min-height: 22px; padding-right: 20px; white-space: pre; }
+.line-number { padding-right: 14px; color: #475569; text-align: right; user-select: none; }
+.syntax-comment { color: #64748b; font-style: italic; }
+.syntax-string { color: #a5d6a7; }
+.syntax-number { color: #fca5a5; }
+.syntax-keyword { color: #c4b5fd; }
+.syntax-tag { color: #7dd3fc; }
+.syntax-punctuation { color: #94a3b8; }
+.simulator-panel { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.simulator-title-row { display: flex; align-items: center; gap: 9px; }
+.simulator-title-row h2 { margin: 0; }
+.simulator-indicator { width: 9px; height: 9px; border-radius: 50%; background: #64748b; }
+.simulator-indicator.running { background: #22c55e; box-shadow: 0 0 10px #22c55e80; }
+.simulator-badge { padding: 3px 8px; border-radius: 999px; color: #94a3b8; background: #1e293b; font-size: .72rem; }
+.simulator-badge.running { color: #86efac; background: #14532d66; }
+.simulator-copy > p { max-width: 650px; margin: 9px 0 0; color: #94a3b8; font-size: .86rem; line-height: 1.5; }
+.simulator-copy > .simulator-table-count { display: inline-block; margin-top: 8px; color: #cbd5e1; font-size: .78rem; }
+.simulator-copy > .simulator-error { color: #fca5a5; }
+.simulator-button { flex: 0 0 auto; padding: 10px 15px; border: 1px solid #2563eb; border-radius: 8px; color: #eff6ff; background: #1d4ed8; cursor: pointer; font: inherit; font-size: .84rem; font-weight: 600; }
+.simulator-button:hover:not(:disabled) { background: #2563eb; }
+.simulator-button.stop { border-color: #7f1d1d; background: #7f1d1d; }
+.simulator-button:disabled { cursor: not-allowed; opacity: .5; }
+.table-detail { margin-top: 6px; color: #94a3b8; font-size: .8rem; }
+.inspector-section-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.inspector-section-heading h2 { margin: 0; }
+.inspector-section-heading p { margin: 5px 0 0; color: #94a3b8; font-size: .84rem; }
+.inspector-protocol-tag { padding: 5px 9px; border: 1px solid #263449; border-radius: 999px; color: #93c5fd; font-size: .73rem; white-space: nowrap; }
+.inspector-toolbar, .inspector-actions, .inspector-filters, .payload-heading, .payload-source, .payload-tools { display: flex; align-items: center; }
+.inspector-toolbar { justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.inspector-filters { flex-wrap: wrap; gap: 5px; }
+.inspector-filters button, .inspector-button { padding: 6px 9px; border: 1px solid #263449; border-radius: 6px; color: #94a3b8; background: #0e1828; cursor: pointer; font: inherit; font-size: .74rem; }
+.inspector-filters button.active { border-color: #1d4ed8; color: #bfdbfe; background: #1e3a5f; }
+.inspector-button:hover:not(:disabled) { color: #e2e8f0; border-color: #475569; }
+.inspector-button:disabled { cursor: not-allowed; opacity: .45; }
+.inspector-actions { gap: 10px; }
+.inspector-connection { display: inline-flex; align-items: center; gap: 6px; color: #fca5a5; font-size: .72rem; white-space: nowrap; }
+.inspector-connection > span, .payload-source-dot { width: 7px; height: 7px; border-radius: 50%; background: #ef4444; }
+.inspector-connection.connected { color: #86efac; }
+.inspector-connection.connected > span, .payload-source-dot { background: #22c55e; }
+.inspector-layout { display: grid; grid-template-columns: minmax(240px, .75fr) minmax(0, 1.25fr); min-height: 330px; overflow: hidden; border: 1px solid #263449; border-radius: 9px; }
+.inspector-feed { min-width: 0; border-right: 1px solid #263449; background: #0e1828; }
+.inspector-feed-heading { display: flex; justify-content: space-between; padding: 11px 12px; border-bottom: 1px solid #263449; color: #94a3b8; font-size: .72rem; }
+.telemetry-list { display: grid; gap: 3px; max-height: 370px; overflow: auto; margin: 0; padding: 6px; list-style: none; }
+.telemetry-event { display: flex; width: 100%; align-items: center; gap: 10px; padding: 9px 8px; border: 1px solid transparent; border-radius: 6px; color: #cbd5e1; background: transparent; text-align: left; cursor: pointer; font: inherit; }
+.telemetry-event:hover { background: #172338; }
+.telemetry-event.selected { border-color: #1e3a5f; background: #172b45; }
+.telemetry-state { min-width: 66px; font-size: .75rem; font-weight: 700; }
+.telemetry-description { display: grid; flex: 1; gap: 3px; min-width: 0; font-size: .78rem; }
+.telemetry-description strong { color: #e2e8f0; }
+.telemetry-description span { overflow: hidden; color: #94a3b8; text-overflow: ellipsis; white-space: nowrap; }
+.telemetry-event time { flex: 0 0 auto; color: #64748b; font-size: .68rem; }
+.inspector-payload { position: relative; display: flex; min-width: 0; flex-direction: column; background: #0b1220; }
+.payload-heading { min-height: 43px; justify-content: space-between; gap: 8px; padding: 0 12px; border-bottom: 1px solid #263449; color: #94a3b8; font-size: .72rem; }
+.payload-source { min-width: 0; gap: 7px; color: #cbd5e1; }
+.payload-source-dot { flex: 0 0 auto; }
+.payload-source-dot.mqtt { background: #a78bfa; box-shadow: 0 0 8px #a78bfa80; }
+.payload-source code { overflow: hidden; color: #64748b; text-overflow: ellipsis; white-space: nowrap; }
+.payload-tools { flex: 0 0 auto; gap: 8px; }
+.payload-json { overflow: auto; flex: 1; max-height: 370px; margin: 0; padding: 10px 0; color: #cbd5e1; background: transparent; font: 12px/1.7 "Cascadia Code", "SFMono-Regular", Consolas, monospace; }
+.payload-json code { display: block; }
+.payload-json-line { display: grid; grid-template-columns: 42px minmax(max-content, 1fr); min-height: 20px; padding-right: 16px; white-space: pre; }
+.payload-line-number { padding-right: 11px; color: #475569; text-align: right; user-select: none; }
+.json-key { color: #7dd3fc; }
+.json-string { color: #a5d6a7; }
+.json-number { color: #fca5a5; }
+.json-boolean { color: #c4b5fd; }
+.json-punctuation { color: #64748b; }
+.inspector-empty { margin: 16px; font-size: .8rem; }
+.copy-feedback { position: absolute; top: 48px; right: 12px; z-index: 1; padding: 5px 8px; border-radius: 5px; color: #e2e8f0; background: #1e293b; font-size: .7rem; }
+.iot-panel { overflow: hidden; }
+.iot-controls { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 16px; }
+.iot-field { display: grid; gap: 6px; min-width: 0; color: #94a3b8; font-size: .75rem; }
+.iot-field input, .iot-field select { width: 100%; min-width: 0; padding: 9px 10px; border: 1px solid #334155; border-radius: 7px; outline: none; color: #e2e8f0; background: #0e1828; font: inherit; font-size: .82rem; }
+.iot-field input:focus, .iot-field select:focus { border-color: #3b82f6; }
+.iot-field select option { color: #e2e8f0; background: #0e1828; }
+.iot-pinout-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
+.iot-diagram-card, .iot-output-card { min-width: 0; overflow: hidden; border: 1px solid #263449; border-radius: 9px; background: #0e1828; }
+.iot-card-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 55px; padding: 10px 12px; border-bottom: 1px solid #263449; }
+.iot-card-heading > div, .iot-output-heading > div { display: grid; gap: 4px; min-width: 0; }
+.iot-card-heading strong, .iot-output-heading strong { color: #e2e8f0; font-size: .82rem; }
+.iot-card-heading > div > span, .iot-output-heading > div > span { color: #94a3b8; font-size: .7rem; line-height: 1.4; }
+.pinout-legend { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 6px; color: #94a3b8; font-size: .68rem; }
+.pinout-legend i { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; }
+.pinout-graphic { display: flex; justify-content: center; overflow-x: auto; padding: 8px 0 0; }
+.pinout-svg { width: min(100%, 400px); min-width: 320px; height: auto; }
+.pinout-clickable { cursor: pointer; }
+.pinout-clickable:hover rect { stroke: #bfdbfe; stroke-width: 2; }
+.pinout-clickable:focus rect { stroke: #f8fafc; stroke-width: 2; outline: none; }
+.led-pin-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; padding: 12px; }
+.led-pin-chip { display: flex; min-width: 0; align-items: center; gap: 7px; padding: 8px; border: 1px solid #263449; border-radius: 7px; color: #cbd5e1; background: #111c2e; text-align: left; cursor: pointer; font: inherit; font-size: .68rem; }
+.led-pin-chip.selected { border-color: var(--led-color); background: color-mix(in srgb, var(--led-color) 12%, #111c2e); }
+.led-pin-chip > i, .wiring-led > i { flex: 0 0 auto; width: 8px; height: 8px; border-radius: 50%; background: var(--led-color); box-shadow: 0 0 8px color-mix(in srgb, var(--led-color) 55%, transparent); }
+.led-pin-chip > span { overflow: hidden; flex: 1; text-overflow: ellipsis; white-space: nowrap; }
+.led-pin-chip code { flex: 0 0 auto; color: #94a3b8; font-size: .65rem; }
+.led-wiring-list { display: grid; gap: 0; padding: 8px 12px; }
+.led-wiring-row { display: grid; grid-template-columns: 44px minmax(8px, 1fr) 62px minmax(8px, 1fr) 48px minmax(8px, 1fr) 28px; align-items: center; gap: 4px; min-height: 42px; }
+.wiring-gpio, .wiring-return { color: #7dd3fc; font: 10px "Cascadia Code", Consolas, monospace; white-space: nowrap; }
+.wiring-return { color: #94a3b8; }
+.wiring-line { height: 2px; background: #475569; }
+.wiring-resistor { padding: 4px 2px; border: 1px solid #64748b; border-radius: 3px; color: #cbd5e1; text-align: center; font: 9px "Cascadia Code", Consolas, monospace; white-space: nowrap; }
+.wiring-led { display: flex; align-items: center; gap: 4px; color: var(--led-color); font: 9px "Cascadia Code", Consolas, monospace; }
+.wiring-led > i { width: 7px; height: 7px; }
+.wiring-note { margin: 0 12px 12px; padding: 9px; border-radius: 6px; color: #94a3b8; background: #111c2e; font-size: .68rem; line-height: 1.5; }
+.iot-safety-note { margin: 14px 0; padding: 11px 12px; border: 1px solid #854d0e; border-radius: 7px; color: #fde68a; background: #42200655; font-size: .74rem; line-height: 1.55; }
+.iot-safety-note strong { color: #fef3c7; }
+.iot-output-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 18px 0 10px; }
+.copy-feedback-static { color: #86efac; font-size: .72rem; }
+.iot-output-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, .65fr); gap: 12px; }
+.iot-output-toolbar { display: flex; min-height: 42px; align-items: center; justify-content: space-between; gap: 8px; padding: 6px 10px; border-bottom: 1px solid #263449; color: #cbd5e1; font-size: .76rem; }
+.iot-output-toolbar > div { display: flex; gap: 6px; }
+.iot-code-preview { overflow: auto; max-height: 390px; margin: 0; padding: 12px; color: #a5d6a7; background: #0b1220; font: 11px/1.6 "Cascadia Code", "SFMono-Regular", Consolas, monospace; white-space: pre; }
+.config-preview { max-height: 250px; color: #c4b5fd; }
+.iot-library-note { margin: 0; padding: 10px 12px 12px; color: #94a3b8; font-size: .7rem; line-height: 1.5; }
+.iot-library-note code { color: #7dd3fc; }
+.camera-heading, .camera-controls, .camera-status { display: flex; align-items: center; gap: 12px; }
+.camera-heading { justify-content: space-between; margin-bottom: 14px; }
+.camera-heading h2 { margin: 0; }
+.camera-heading p { margin: 5px 0 0; color: #94a3b8; font-size: .84rem; }
+.camera-button, .camera-secondary-button { padding: 8px 12px; border: 1px solid #2563eb; border-radius: 7px; color: #eff6ff; background: #1d4ed8; cursor: pointer; font: inherit; font-size: .82rem; }
+.camera-button.stop { border-color: #7f1d1d; background: #7f1d1d; }
+.camera-secondary-button { border-color: #334155; background: #1e293b; }
+.camera-button:disabled, .camera-secondary-button:disabled { cursor: not-allowed; opacity: .5; }
+.camera-controls { flex-wrap: wrap; margin-bottom: 12px; }
+.camera-controls label { color: #cbd5e1; font-size: .84rem; }
+.camera-controls select { max-width: 220px; padding: 7px 9px; border: 1px solid #334155; border-radius: 7px; color: #e2e8f0; background: #0e1828; font: inherit; }
+.camera-video-shell { position: relative; display: grid; min-height: 220px; place-items: center; overflow: hidden; border-radius: 9px; background: #050a12; }
+.camera-video-shell video { display: block; width: 100%; max-height: 65vh; object-fit: contain; }
+.camera-video-shell:not(.active) video { display: none; }
+.camera-placeholder { padding: 40px 18px; color: #94a3b8; text-align: center; }
+.camera-overlay { position: absolute; inset: 0; width: 100%; height: 100%; }
+.camera-overlay.editing { cursor: crosshair; }
+.camera-roi polygon { fill: #22c55e22; stroke: #4ade80; stroke-width: 4; vector-effect: non-scaling-stroke; }
+.camera-roi.selected polygon { fill: #60a5fa33; stroke: #60a5fa; }
+.camera-roi text, .camera-detection text { fill: #fff; stroke: #0b1220; stroke-width: 5px; paint-order: stroke; font: 600 24px sans-serif; }
+.camera-detection rect { fill: none; stroke: #facc15; stroke-width: 4; vector-effect: non-scaling-stroke; }
+.camera-detection-faces rect { stroke: #e879f9; }
+.camera-detection-tables rect { stroke: #60a5fa; }
+.camera-detection-dishware rect { stroke: #34d399; }
+.camera-detection-food rect { stroke: #fb923c; }
+.camera-roi-draft { fill: #60a5fa33; stroke: #60a5fa; stroke-width: 4; vector-effect: non-scaling-stroke; }
+.camera-overlay circle { fill: #bfdbfe; }
+.camera-capture-canvas { display: none; }
+.camera-status { justify-content: space-between; margin-top: 10px; color: #cbd5e1; font-size: .82rem; }
+.camera-error { margin: 10px 0 0; color: #fca5a5; font-size: .84rem; }
+@media (max-width: 700px) {
+  .explorer-workspace { grid-template-columns: minmax(0, 1fr); }
+  .explorer-sidebar { max-height: 260px; border-right: 0; border-bottom: 1px solid #263449; }
+  .explorer-preview { min-height: 320px; }
+  .simulator-panel { align-items: flex-start; flex-direction: column; }
+  .inspector-section-heading { align-items: flex-start; }
+  .inspector-toolbar { align-items: flex-start; flex-direction: column; }
+  .inspector-actions { width: 100%; justify-content: space-between; }
+  .inspector-layout { grid-template-columns: minmax(0, 1fr); }
+  .inspector-feed { border-right: 0; border-bottom: 1px solid #263449; }
+  .inspector-feed .telemetry-list { max-height: 220px; }
+  .payload-json { max-height: 320px; }
+  .iot-controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .iot-pinout-layout, .iot-output-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 420px) {
+  .iot-controls { grid-template-columns: minmax(0, 1fr); }
+  .led-pin-chip { font-size: .62rem; }
+  .led-wiring-row { grid-template-columns: 38px minmax(4px, 1fr) 56px minmax(4px, 1fr) 42px minmax(4px, 1fr) 24px; gap: 3px; }
+  .wiring-gpio, .wiring-return { font-size: 9px; }
+  .wiring-resistor { font-size: 8px; }
+}

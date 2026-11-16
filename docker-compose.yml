@@ -1,0 +1,27 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - backend-data:/app/data
+      - ./backend/models:/app/models:ro
+      - ./backend:/workspace/backend:ro
+      - ./frontend:/workspace/frontend:ro
+    environment:
+      DATABASE_URL: sqlite+aiosqlite:///./data/restaurant.db
+      CORS_ORIGINS: '["http://localhost:5173"]'
+      FILE_EXPLORER_BACKEND_ROOT: /workspace/backend
+      FILE_EXPLORER_FRONTEND_ROOT: /workspace/frontend
+      MQTT_ENABLED: ${MQTT_ENABLED:-false}
+  frontend:
+    build: ./frontend
+    environment:
+      VITE_API_URL: http://localhost:8000
+      VITE_WS_URL: ws://localhost:8000
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+volumes:
+  backend-data:
